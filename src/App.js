@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import WeatherMenu from './Menu/index'
+import Home from './Home/index'
 import Cities from './Cities/index'
 import AuthAdapter from './AuthAdapter'
 
@@ -46,7 +47,8 @@ class App extends Component {
       <Router>
         <div>
           <WeatherMenu login={this.login} logout={this.logout} {...this.state}/>
-          <Route to='/api/v1/cities' component={Cities} />
+          <Route exact to='/' component={Home} />
+          <Route exact to='/api/v1/cities' component={Cities} />
         </div>
       </Router>
     )

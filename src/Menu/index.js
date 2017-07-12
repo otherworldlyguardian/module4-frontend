@@ -62,7 +62,13 @@ class WeatherMenu extends Component {
     if (this.props.isLoggedIn) {
       return (
         <Menu color='teal' inverted>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item
+            as={NavLink}
+            to={'/'}
+            name='home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick}
+          />
           <Menu.Item
             as={NavLink}
             to={'/api/v1/cities'}
@@ -70,7 +76,6 @@ class WeatherMenu extends Component {
             active={activeItem === 'Cities'}
             onClick={this.handleItemClick}
           />
-          <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
           <Menu.Item position='right'>
             Welcome, {this.props.user.username}!
           </Menu.Item>
@@ -82,7 +87,13 @@ class WeatherMenu extends Component {
     } else {
       return (
         <Menu color='teal' inverted>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item
+            as={NavLink}
+            to={'/'}
+            name='home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick}
+          />
           <Menu.Item
             as={NavLink}
             to={'/api/v1/cities'}
@@ -90,7 +101,6 @@ class WeatherMenu extends Component {
             active={activeItem === 'Cities'}
             onClick={this.handleItemClick}
           />
-          <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
           <Menu.Item position='right'>
             <LogInModal {...this.state} handleChange={this.handleChange} handleSubmit={this.handleLogIn} />
           </Menu.Item>
