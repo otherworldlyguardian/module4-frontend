@@ -36,5 +36,14 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      var callbackFunction = function(data) {
+        var wind = data.query.results;
+        console.log(wind);
+      };
+    </script>
+
+    <script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=callbackFunction"></script>
+
   </body>
 </html>
