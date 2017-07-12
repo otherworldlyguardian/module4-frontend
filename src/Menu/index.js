@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Menu, Button } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
+import { LogInModal, SignUpModal } from './Modal'
+
 
 class WeatherMenu extends Component {
   constructor () {
@@ -28,10 +30,10 @@ class WeatherMenu extends Component {
         />
         <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
         <Menu.Item position='right'>
-          <Button color='orange'>Log-in</Button>
+          <LogInModal />
         </Menu.Item>
         <Menu.Item>
-          <Button color='orange'>Sign Up</Button>
+          <SignUpModal />
         </Menu.Item>
       </Menu>
     )
