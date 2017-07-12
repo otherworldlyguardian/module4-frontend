@@ -9,20 +9,47 @@ class WeatherMenu extends Component {
     super()
 
     this.state = {
-      activeItem: 'home'
+      activeItem: 'home',
+      username: '',
+      password: ''
     }
+
+    this.base_url = 'http://localhost:3000/api/v1/'
   }
 
   handleItemClick = (e) => this.setState({ activeItem: e.target.name })
 
+  handleChange = (e) => this.setState({[e.target.name]: e.target.value})
+
   handleLogIn = (e) => {
     e.preventDefault()
-    alert('Login worked')
+    fetch(this.base_url + 'login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   handleSignUp = (e) => {
     e.preventDefault()
-    alert('Signup worked')
+    alert(`${this.state.username}, ${this.state.password}`)
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   render() {
@@ -40,10 +67,10 @@ class WeatherMenu extends Component {
         />
         <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
         <Menu.Item position='right'>
-          <LogInModal handleSubmit={this.handleLogIn}/>
+          <LogInModal {...this.state} handleChange={this.handleChange} handleSubmit={this.handleLogIn} />
         </Menu.Item>
         <Menu.Item>
-          <SignUpModal handleSubmit={this.handleSignUp} />
+          <SignUpModal {...this.state} handleChange={this.handleChange} handleSubmit={this.handleSignUp} />
         </Menu.Item>
       </Menu>
     )
