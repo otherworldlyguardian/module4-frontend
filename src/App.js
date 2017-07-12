@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <WeatherMenu login={this.login} logout={this.logout} />
+          <WeatherMenu login={this.login} logout={this.logout} {...this.state}/>
           <Route to='/api/v1/cities' component={Cities} />
         </div>
       </Router>
