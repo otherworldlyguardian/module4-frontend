@@ -22,20 +22,7 @@ class WeatherMenu extends Component {
   handleChange = (e) => this.setState({[e.target.name]: e.target.value})
 
   handleLogIn = (e) => {
-    e.preventDefault()
-    fetch(this.base_url + 'login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'accept': 'application/json'
-      },
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password
-      })
-    })
-    .then(resp => resp.json())
-    .then(data => console.log(data))
+    this.props.login({username: this.state.username, password: this.state.password})
 
     this.setState({
       username: '',
@@ -45,7 +32,22 @@ class WeatherMenu extends Component {
 
   handleSignUp = (e) => {
     e.preventDefault()
-    alert(`${this.state.username}, ${this.state.password}`)
+    fetch(this.base_url + 'users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          username: this.state.username,
+          password: this.state.password
+        }
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+
     this.setState({
       username: '',
       password: ''
