@@ -13,7 +13,17 @@ class WeatherMenu extends Component {
     }
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e) => this.setState({ activeItem: e.target.name })
+
+  handleLogIn = (e) => {
+    e.preventDefault()
+    alert('Login worked')
+  }
+
+  handleSignUp = (e) => {
+    e.preventDefault()
+    alert('Signup worked')
+  }
 
   render() {
     const { activeItem } = this.state
@@ -30,10 +40,10 @@ class WeatherMenu extends Component {
         />
         <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
         <Menu.Item position='right'>
-          <LogInModal />
+          <LogInModal handleSubmit={this.handleLogIn}/>
         </Menu.Item>
         <Menu.Item>
-          <SignUpModal />
+          <SignUpModal handleSubmit={this.handleSignUp} />
         </Menu.Item>
       </Menu>
     )
