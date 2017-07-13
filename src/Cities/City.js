@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Sidebar, Segment, Menu, Icon } from 'semantic-ui-react'
+import { Table, Sidebar, Segment, Menu, Icon, Popup, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 class City extends React.Component {
@@ -11,7 +11,11 @@ class City extends React.Component {
     }
   }
 
-  turnOn = () => this.setState({ visible: true })
+  turnOn = (e) => {
+    if (e.target.className === 'ui basic segment') {
+      this.setState({ visible: true })
+    }
+  }
 
   turnOff = () => this.setState({ visible: false })
 
@@ -40,7 +44,18 @@ class City extends React.Component {
             </Sidebar>
             <Sidebar.Pusher>
               <Segment basic onClick={this.turnOn}>
-                {this.props.name}
+                <Popup
+                  trigger={<Button>{this.props.name}</Button>}
+                  content={<iframe
+                    title={this.props.owm_id}
+                    src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyB9ynrswXrhclz_8aBtYc7UjDRxOO-zdds&center=${this.props.lat},${this.props.lon}&zoom=13&maptype=satellite`}
+                    width="400"
+                    height="300"
+                    frameBorder="0"
+                    allowFullScreen></iframe>}
+                  on='click'
+                  position='right center'
+                />
               </Segment>
             </Sidebar.Pusher>
           </Sidebar.Pushable>
