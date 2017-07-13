@@ -9,13 +9,10 @@ class WeatherMenu extends Component {
     super()
 
     this.state = {
-      activeItem: 'home',
       username: '',
       password: ''
     }
   }
-
-  handleItemClick = (e) => this.setState({ activeItem: e.target.name })
 
   handleChange = (e) => this.setState({[e.target.name]: e.target.value})
 
@@ -57,24 +54,18 @@ class WeatherMenu extends Component {
   }
 
   render() {
-    const { activeItem } = this.state
-
     if (this.props.isLoggedIn) {
       return (
         <Menu color='teal' inverted>
           <Menu.Item
             as={NavLink}
-            to={'/'}
+            exact to={'/'}
             name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
           />
           <Menu.Item
             as={NavLink}
             to={'/api/v1/cities'}
             name='Cities'
-            active={activeItem === 'Cities'}
-            onClick={this.handleItemClick}
           />
           <Menu.Item position='right'>
             Welcome, {this.props.user.username}!
@@ -89,17 +80,13 @@ class WeatherMenu extends Component {
         <Menu color='teal' inverted>
           <Menu.Item
             as={NavLink}
-            to={'/'}
+            exact to={'/'}
             name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
           />
           <Menu.Item
             as={NavLink}
             to={'/api/v1/cities'}
             name='Cities'
-            active={activeItem === 'Cities'}
-            onClick={this.handleItemClick}
           />
           <Menu.Item position='right'>
             <LogInModal {...this.state} handleChange={this.handleChange} handleSubmit={this.handleLogIn} />

@@ -47,8 +47,8 @@ class App extends Component {
       <Router>
         <div>
           <WeatherMenu login={this.login} logout={this.logout} {...this.state}/>
-          <Route exact to='/' component={Home} />
-          <Route exact to='/api/v1/cities' component={Cities} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/api/v1/cities' component={Cities} />
         </div>
       </Router>
     )
