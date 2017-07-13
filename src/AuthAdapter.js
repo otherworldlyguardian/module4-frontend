@@ -1,7 +1,7 @@
 const base_url = 'http://localhost:3000/api/v1/'
 
 class AuthAdapter {
-  
+
   static login (loginParams) {
     return fetch(base_url + 'login', {
       method: 'POST',

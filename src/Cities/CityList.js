@@ -15,7 +15,7 @@ const CityList = ({ cities }) => {
         </Table.Header>
 
         <Table.Body>
-          {cities.map(city => <City {...city} />)}
+          {cities.map(city => <City key={city.id} {...city} /> )}
         </Table.Body>
       </Table>
     )
