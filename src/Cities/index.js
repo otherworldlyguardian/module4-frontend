@@ -18,10 +18,10 @@ class Cities extends Component {
 
   fetchCities() {
     fetch('http://localhost:3000/api/v1/cities')
-    .then(res => res.json())
-    .then(data => this.setState({
-      cities: data['cities']
-    }))
+      .then(res => res.json())
+      .then(data => this.setState({
+        cities: data['cities']
+      }))
   }
 
   handleChange = (event) => {

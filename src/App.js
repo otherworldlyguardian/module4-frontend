@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import WeatherMenu from './Menu/index'
 import Home from './Home/index'
 import Cities from './Cities/index'
+import Weather from './Weather/index'
 import AuthAdapter from './AuthAdapter'
 
 class App extends Component {
@@ -47,8 +48,11 @@ class App extends Component {
       <Router>
         <div>
           <WeatherMenu login={this.login} logout={this.logout} {...this.state}/>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/api/v1/cities' component={Cities} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/api/v1/cities' component={Cities} />
+            <Route path='/api/v1/cities/:cityId' component={Weather} />
+          </Switch>
         </div>
       </Router>
     )
