@@ -77,7 +77,7 @@ class WeatherMenu extends Component {
       )
     } else {
       return (
-        <Menu color='teal' inverted>
+        <Menu color='green' inverted>
           <Menu.Item
             as={NavLink}
             exact to={'/'}

@@ -51,7 +51,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/api/v1/cities' component={Cities} />
-            <Route path='/api/v1/cities/:cityId' component={Weather} />
+            <Route exact path='/api/v1/cities/:cityId' component={Weather} />
+            <Route exact path='/api/v1/cities/:cityId/5day' component={Weather} />
           </Switch>
         </div>
       </Router>

@@ -28,7 +28,10 @@ class City extends Component {
               >
                 Current Weather
               </Menu.Item>
-              <Menu.Item>
+              <Menu.Item
+                as={Link}
+                to={`/api/v1/cities/${this.props.owm_id}/5day`}
+              >
                 Hourly Weather
               </Menu.Item>
               <Menu.Item>

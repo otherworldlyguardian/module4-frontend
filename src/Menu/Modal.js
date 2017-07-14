@@ -3,7 +3,7 @@ import { Button, Modal } from 'semantic-ui-react'
 import UserForm from './Form'
 
 export const LogInModal = ({ handleSubmit, handleChange, username, password }) => (
-  <Modal trigger={<Button color="orange">Log In</Button>}>
+  <Modal trigger={<Button color="red">Log In</Button>}>
     <Modal.Header>Please enter your Username and Password</Modal.Header>
     <Modal.Content>
       <UserForm username={username} password={password} handleChange={handleChange} handleSubmit={handleSubmit} type="Login"/>
@@ -12,7 +12,7 @@ export const LogInModal = ({ handleSubmit, handleChange, username, password }) =
 )
 
 export const SignUpModal = ({ handleSubmit, handleChange, username, password }) => (
-  <Modal trigger={<Button color="orange">Sign Up</Button>}>
+  <Modal trigger={<Button color="red">Sign Up</Button>}>
     <Modal.Header>Enter choose a Username and Password</Modal.Header>
     <Modal.Content>
       <UserForm username={username} password={password} handleChange={handleChange} handleSubmit={handleSubmit} type="Signup"/>

@@ -25,12 +25,11 @@ class Weather extends Component {
   }
 
   render () {
-    return (
-      <div>
-        <WeatherShow {...this.state.city} />
-        <FiveDay />
-      </div>
-    )
+    if (this.props.match.url.includes('5day')) {
+      return <FiveDay {...this.state.city} />
+    } else {
+      return <WeatherShow {...this.state.city} />
+    }
   }
 }
 

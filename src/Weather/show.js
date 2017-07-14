@@ -1,27 +1,20 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
 
-const backgroundStyle = {
+const cardStyle = {
   float: 'left',
   height: 350,
   width: 375,
-  backgroundSize: 'cover',
-  left: '25%'
+  left: '20%'
 }
 
 const iframeStyle = {
-  float: 'right',
-  right: '60%',
-  paddingRight: 100
-}
-
-const temp = {
-  backgroundImage: 'url(https://weather.com/weather/assets/today-card-day-rain.f5a1f2b6412082dd6ed636b45b1b6f55.jpg)'
+  paddingLeft: 800
 }
 
 const WeatherShow = (props) => (
   <div>
-    <Card style={backgroundStyle}>
+    <Card style={cardStyle}>
        <Card.Content>
          <Card.Header><h2>{props.name}</h2></Card.Header>
          <Card.Meta>
@@ -47,8 +40,8 @@ const WeatherShow = (props) => (
        <iframe
          title={props.owm_id}
          src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyB9ynrswXrhclz_8aBtYc7UjDRxOO-zdds&center=${props.lat},${props.lon}&zoom=13&maptype=satellite`}
-         width='500'
-         height='500'
+         width='400'
+         height='400'
          frameBorder="0"
 
         />
