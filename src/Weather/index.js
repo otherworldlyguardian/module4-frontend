@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import WeatherShow from './show'
+import FiveDay from './5day'
 
 class Weather extends Component {
 
@@ -25,7 +26,10 @@ class Weather extends Component {
 
   render () {
     return (
-      <WeatherShow {...this.state.city} />
+      <div>
+        <WeatherShow {...this.state.city} />
+        <FiveDay />
+      </div>
     )
   }
 }
