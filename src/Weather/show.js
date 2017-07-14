@@ -3,15 +3,16 @@ import { Card } from 'semantic-ui-react'
 
 const backgroundStyle = {
   float: 'left',
-  height: '350',
-  width: '375',
+  height: 350,
+  width: 375,
   backgroundSize: 'cover',
   left: '25%'
 }
 
 const iframeStyle = {
   float: 'right',
-  right: '60%'
+  right: '60%',
+  paddingRight: 100
 }
 
 const temp = {
