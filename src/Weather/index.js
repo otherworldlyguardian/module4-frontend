@@ -13,7 +13,11 @@ class Weather extends Component {
   }
 
   componentWillMount() {
-    this.fetchWeather()
+    if (this.props.match.url.includes('5day')) {
+      this.fetch5day()
+    } else {
+      this.fetchWeather()
+    }
   }
 
   fetchWeather() {
@@ -21,6 +25,14 @@ class Weather extends Component {
       .then(resp => resp.json())
       .then(data => this.setState({
         city: data['city']
+      }))
+  }
+
+  fetch5day() {
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${this.props.match.params.cityId}&appid=ae1ff8ec7a4faaabf1ef775f5a4957b2&units=imperial`)
+      .then(resp => resp.json())
+      .then(data => this.setState({
+        city: data
       }))
   }
 
